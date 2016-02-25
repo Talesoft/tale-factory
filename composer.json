@@ -1,10 +1,10 @@
 {
-    "name": "talesoft/tale-inflector",
+    "name": "talesoft/tale-factory",
     "type": "library",
-    "keywords": ["string", "bending", "inflection", "manipulation"],
-    "description": "A library that can inflect strings to many formats",
+    "keywords": ["factory"],
+    "description": "A library for automated sub-class instanciation",
     "license": "MIT",
-    "homepage": "http://inflector.tale.talesoft.io",
+    "homepage": "http://factory.tale.talesoft.io",
     "authors": [
         {
             "name": "Talesoft",
