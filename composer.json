@@ -2,7 +2,7 @@
     "name": "talesoft/tale-factory",
     "type": "library",
     "keywords": ["factory"],
-    "description": "A library for automated sub-class instanciation",
+    "description": "A small and lightweight implementation of the factory pattern",
     "license": "MIT",
     "homepage": "http://factory.tale.talesoft.io",
     "authors": [

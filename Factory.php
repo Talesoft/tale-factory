@@ -73,12 +73,22 @@ class Factory
      * @param string $className The class-name to be converted
      *
      * @return string The usable FQCN of the class
+     * @throws FactoryException
      */
-    public function resolveClassName($className)
+    public function resolve($className)
     {
 
         if (isset($this->_aliases[$className]))
             $className = $this->_aliases[$className];
+
+        if (!class_exists($className)
+            || ($this->_baseClassName
+            && !is_subclass_of($className, $this->_baseClassName)))
+            throw new FactoryException(
+                "Failed to create factory instance: ".
+                "$className does not exist or is not ".
+                "a valid {$this->_baseClassName}"
+            );
 
         return $className;
     }
@@ -91,7 +101,7 @@ class Factory
      *
      * @return $this
      */
-    public function registerAlias($alias, $className)
+    public function register($alias, $className)
     {
 
         $this->_aliases[$alias] = $className;
@@ -108,11 +118,11 @@ class Factory
      *
      * @return $this
      */
-    public function registerAliases(array $aliases)
+    public function registerArray(array $aliases)
     {
 
         foreach ($aliases as $alias => $className)
-            $this->registerAlias($alias, $className);
+            $this->register($alias, $className);
 
         return $this;
     }
@@ -133,14 +143,7 @@ class Factory
     {
 
         $args = $args ? $args : [];
-        $className = $this->resolveClassName($className);
-
-        if (!class_exists($className)
-        || ($this->_baseClassName && !is_subclass_of($className, $this->_baseClassName)))
-            throw new FactoryException(
-                "Failed to create factory instance: "
-                ."$className does not exist or is not a valid {$this->_baseClassName}"
-            );
+        $className = $this->resolve($className);
 
         //Avoid reflection in some major cases
         switch (count($args)) {
