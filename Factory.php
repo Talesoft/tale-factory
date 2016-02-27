@@ -145,7 +145,21 @@ class Factory
         $args = $args ? $args : [];
         $className = $this->resolve($className);
 
-        //Avoid reflection in some major cases
+        return self::createInstance($className, $args);
+    }
+
+    public static function createInstance($className, array $args = null)
+    {
+
+        if (!class_exists($className))
+            throw new FactoryException(
+                "Failed to create instance: "
+                ."$className does not exist."
+            );
+
+        $args = $args ? $args : [];
+
+        //Avoid reflection in some major cases for performance reasons
         switch (count($args)) {
             case 0: return new $className();
             case 1: return new $className($args[0]);
