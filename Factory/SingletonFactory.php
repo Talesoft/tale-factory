@@ -31,6 +31,14 @@ class SingletonFactory extends Factory
     }
 
     /**
+     * @return object[]
+     */
+    public function getInstances()
+    {
+        return $this->_instances;
+    }
+
+    /**
      * @param string $className
      * @param array  $createArgs
      *
