@@ -3,6 +3,7 @@
 namespace Tale\Test;
 
 use Tale\Factory;
+use Tale\Factory\SingletonFactory;
 use Tale\FactoryException;
 
 interface I {}
@@ -27,6 +28,20 @@ class InflectorTest extends \PHPUnit_Framework_TestCase
 
         $this->setExpectedException(FactoryException::class);
         $c = $factory->create('c');
+    }
+
+    public function testSingletonFactory()
+    {
+
+        $factory = new SingletonFactory(I::class);
+
+        $a1 = $factory->get(A::class);
+        $a2 = $factory->get(A::class);
+
+        $this->assertSame($a1, $a2);
+
+        $this->setExpectedException(FactoryException::class);
+        $c = $factory->get(C::class);
     }
 
 }
