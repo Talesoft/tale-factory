@@ -15,7 +15,7 @@ class SingletonFactory extends Factory
     /**
      * @var array
      */
-    private $_instances;
+    private $instances;
 
     /**
      * SingletonFactory constructor.
@@ -27,7 +27,7 @@ class SingletonFactory extends Factory
     {
         parent::__construct($baseClassName, $aliases);
 
-        $this->_instances = [];
+        $this->instances = [];
     }
 
     /**
@@ -35,7 +35,7 @@ class SingletonFactory extends Factory
      */
     public function getInstances()
     {
-        return $this->_instances;
+        return $this->instances;
     }
 
     /**
@@ -47,9 +47,9 @@ class SingletonFactory extends Factory
     public function get($className, array $createArgs = null)
     {
 
-        if (isset($this->_instances[$className]))
-            return $this->_instances[$className];
+        if (isset($this->instances[$className]))
+            return $this->instances[$className];
 
-        return $this->_instances[$className] = $this->create($className, $createArgs);
+        return $this->instances[$className] = $this->create($className, $createArgs);
     }
 }

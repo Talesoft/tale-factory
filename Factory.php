@@ -21,14 +21,14 @@ class Factory
      *
      * @var string
      */
-    private $_baseClassName;
+    private $baseClassName;
 
     /**
      * An associative array of aliases.
      *
      * @var array
      */
-    private $_aliases;
+    private $aliases;
 
     /**
      * Creates a new factory instance.
@@ -39,8 +39,8 @@ class Factory
     public function __construct($baseClassName = null, array $aliases = null)
     {
 
-        $this->_baseClassName = $baseClassName ?: null;
-        $this->_aliases = $aliases ?: [];
+        $this->baseClassName = $baseClassName ?: null;
+        $this->aliases = $aliases ?: [];
     }
 
     /**
@@ -51,7 +51,7 @@ class Factory
     public function getBaseClassName()
     {
 
-        return $this->_baseClassName;
+        return $this->baseClassName;
     }
 
     /**
@@ -62,7 +62,7 @@ class Factory
     public function getAliases()
     {
 
-        return $this->_aliases;
+        return $this->aliases;
     }
 
     /**
@@ -78,16 +78,16 @@ class Factory
     public function resolve($className)
     {
 
-        if (isset($this->_aliases[$className]))
-            $className = $this->_aliases[$className];
+        if (isset($this->aliases[$className]))
+            $className = $this->aliases[$className];
 
         if (!class_exists($className)
-            || ($this->_baseClassName
-            && !is_subclass_of($className, $this->_baseClassName)))
+            || ($this->baseClassName
+            && !is_subclass_of($className, $this->baseClassName)))
             throw new FactoryException(
                 "Failed to create factory instance: ".
                 "$className does not exist or is not ".
-                "a valid {$this->_baseClassName}"
+                "a valid {$this->baseClassName}"
             );
 
         return $className;
@@ -104,7 +104,7 @@ class Factory
     public function register($alias, $className)
     {
 
-        $this->_aliases[$alias] = $className;
+        $this->aliases[$alias] = $className;
 
         return $this;
     }
