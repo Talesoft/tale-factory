@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <phpdoc>
-    <title><![CDATA[Tale Inflector]]></title>
+    <title><![CDATA[Tale Factory]]></title>
     <parser>
         <target>docs/structure</target>
         <extensions>
@@ -15,7 +15,7 @@
     </transformations>
     <files>
         <directory>.</directory>
-        <ignore>tasks.php</ignore>
+        <ignore>tasks</ignore>
         <ignore>Test/*</ignore>
         <ignore>vendor/*</ignore>
     </files>

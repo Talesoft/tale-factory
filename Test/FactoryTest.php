@@ -13,7 +13,7 @@ class B implements I {}
 class C {}
 class D extends A {}
 
-class InflectorTest extends \PHPUnit_Framework_TestCase
+class FactoryTest extends \PHPUnit_Framework_TestCase
 {
 
 

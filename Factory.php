@@ -133,7 +133,7 @@ class Factory
      * If the class doesnt exist or doesnt extend the base-class of this factory,
      * an exception is thrown
      *
-     * @param string $className The alias or FQCN to instanciate
+     * @param string $className The alias or FQCN to instantiate
      * @param array $args The arguments that should be passed to the constructor
      *
      * @return object The newly created child-class instance
@@ -148,6 +148,17 @@ class Factory
         return self::createInstance($className, $args);
     }
 
+    /**
+     * Creates a new instance of a class based on a class name.
+     *
+     * If the class doesnt exist, an exception is thrown
+     *
+     * @param string $className The alias or FQCN to instantiate
+     * @param array $args The arguments that should be passed to the constructor
+     *
+     * @return object The newly created class instance
+     * @throws FactoryException
+     */
     public static function createInstance($className, array $args = null)
     {
 

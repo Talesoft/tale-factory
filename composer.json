@@ -7,11 +7,6 @@
     "homepage": "http://docs.talesoft.io/tale-framework/tale/factory",
     "authors": [
         {
-            "name": "Talesoft",
-            "homepage": "http://talesoft.io",
-            "email": "info@talesoft.io"
-        },
-        {
             "name": "Torben Koehn",
             "email": "tk@talesoft.io"
         }
