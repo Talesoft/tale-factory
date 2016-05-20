@@ -47,6 +47,7 @@ class SingletonFactory extends Factory
     public function get($className, array $createArgs = null)
     {
 
+        $className = $this->resolve($className);
         if (isset($this->instances[$className]))
             return $this->instances[$className];
 

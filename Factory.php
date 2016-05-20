@@ -142,7 +142,7 @@ class Factory
     public function create($className, array $args = null)
     {
 
-        $args = $args ? $args : [];
+        $args = $args ?: [];
         $className = $this->resolve($className);
 
         return self::createInstance($className, $args);
@@ -168,7 +168,7 @@ class Factory
                 ."$className does not exist."
             );
 
-        $args = $args ? $args : [];
+        $args = $args ?: [];
 
         //Avoid reflection in some major cases for performance reasons
         switch (count($args)) {
