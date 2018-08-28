@@ -2,22 +2,25 @@
     "name": "talesoft/tale-factory",
     "type": "library",
     "keywords": ["factory"],
-    "description": "A small and lightweight implementation of the factory pattern",
+    "description": "A generic factory implementation",
     "license": "MIT",
-    "homepage": "http://docs.talesoft.io/tale-framework/tale/factory",
+    "homepage": "http://docs.talesoft.codes/php/tale/factory",
     "authors": [
         {
             "name": "Torben Koehn",
-            "email": "tk@talesoft.io"
+            "email": "torben@talesoft.codes"
         }
     ],
-    "minimum-stability": "dev",
     "require": {
-        "php": ">=5.5.0"
+        "php": ">=7.1.0"
+    },
+    "require-dev": {
+        "talesoft/tale-dev-tool": "^0.2.5"
     },
     "autoload": {
         "psr-4": {
-            "Tale\\": ""
+            "Tale\\": "src",
+            "Tale\\Test\\": "tests"
         }
     }
 }
