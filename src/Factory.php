@@ -1,9 +1,6 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Tale;
-
-use Tale\Factory\Exception;
 
 class Factory implements FactoryInterface
 {
@@ -74,7 +71,7 @@ class Factory implements FactoryInterface
     private function validateClassName(string $className): void
     {
         if (!is_a($className, $this->baseClassName, true)) {
-            throw new Exception("{$className} is not a valid {$this->baseClassName} type");
+            throw new FactoryException("{$className} is not a valid {$this->baseClassName} type");
         }
     }
 }

@@ -1,5 +1,4 @@
-<?php
-declare(strict_types=1);
+<?php declare(strict_types=1);
 
 namespace Tale\Test;
 
@@ -59,7 +58,7 @@ class FactoryTest extends TestCase
      * @covers ::__construct
      * @covers ::resolve
      * @covers ::validateClassName
-     * @expectedException \Tale\Factory\Exception
+     * @expectedException \Tale\FactoryException
      */
     public function testNotYetRegisteredAliasThrowsException(): void
     {
@@ -73,7 +72,7 @@ class FactoryTest extends TestCase
      * @covers ::unregister
      * @covers ::resolve
      * @covers ::validateClassName
-     * @expectedException \Tale\Factory\Exception
+     * @expectedException \Tale\FactoryException
      */
     public function testUnregisteredAliasThrowsException(): void
     {
